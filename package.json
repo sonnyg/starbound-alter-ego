@@ -1,0 +1,24 @@
+{
+  "name": "starbound-wig-out",
+  "version": "0.0.1",
+  "description": "Generates the assets defining a wig mod for Starbound",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonnyg/starbound-wig-out.git"
+  },
+  "keywords": [
+    "starbound",
+    "mod",
+    "wigs"
+  ],
+  "author": "sonnyg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonnyg/starbound-wig-out/issues"
+  },
+  "homepage": "https://github.com/sonnyg/starbound-wig-out#readme"
+}
