@@ -8,7 +8,7 @@ const asset_unpacker = `${starbound_root}/osx/asset_unpacker`;
 const asset_root = `${starbound_root}/assets`;
 
 const asset_source = `${asset_root}/packed.pak`;
-const asset_target = `${asset_root}/_unpacked2`;
+const asset_target = `${asset_root}/_unpacked`;
 
 console.log(`Unpacking Starbound assets: ${asset_root}`);
 
