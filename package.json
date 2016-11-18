@@ -1,10 +1,11 @@
 {
-  "name": "starbound-wig-out",
+  "name": "wig-out",
   "version": "0.0.1",
-  "description": "Generates the assets defining a wig mod for Starbound",
+  "description": "Adds wigs and a variety of dyes to Starbound",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./src/index.js"
   },
   "repository": {
     "type": "git",
