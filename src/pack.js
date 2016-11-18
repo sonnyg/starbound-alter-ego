@@ -29,6 +29,6 @@ const child = execFile(asset_packer, [pak_source, pak_target], (error, stdout, s
   console.log(stdout);
   console.log(`deploying mod: ${mod_target}`);
 
-  // this may not seem like an efficient copy but it is OS indpendent
+  // this may not seem like an efficient copy but it is OS independent
   fs.createReadStream(pak_target).pipe(fs.createWriteStream(mod_target));
 });
