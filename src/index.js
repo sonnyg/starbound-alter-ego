@@ -19,10 +19,9 @@ function createMetadata() {
   };
 }
 
-function writeMetadata(metadata) {
-  // 'pretty' print the json
-  fs.writeFileSync('./build/wig-out/.metadata', JSON.stringify(metadata, null, '\t'));
-  console.log('.metadata file created');
+function writeMetadataFile(modName, metadata) {
+  const fileName = `./build/${modName}/.metadata`;
+  writeFile(fileName, metadata);
 }
 
 function createDye(modName, index, descriptor) {
@@ -58,8 +57,9 @@ function writeFile(fileName, data) {
 }
 
 const metadata = createMetadata();
-writeMetadata(metadata);
-writeDyeFiles(metadata.name, dyeDescriptors);
+const modName = metadata.name;
+writeMetadataFile(modName, metadata);
+writeDyeFiles(modName, dyeDescriptors);
 
 // for (var key in process.env) {
   // console.log(`${key} : ${process.env[key]}`)
