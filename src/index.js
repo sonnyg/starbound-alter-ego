@@ -144,6 +144,8 @@ function writeWigFiles(modName, wigDescriptors) {
 
     writeFile(fileName, wig);
     writeIconFile(wigDescriptor.iconSource, `${dir}/icons.png`);
+    // writeMaskFile(wigDescriptor.maskSource, `${dir}/mask.png`);
+    writeMaskFile('./mask.png', `${dir}/mask.png`); // for now, just copy the empty mask file
   })
 }
 
@@ -157,21 +159,32 @@ function writeIconFile(imageSource, iconTarget) {
     icon.crop(55, 9, 16, 16);
 
     icon.write(iconTarget, (err) => {
+      if (err) {
+        throw err;
+      }
+
       console.log(`file created: ${iconTarget}`);
     });
-    // console.log(`image read ${image.bitmap.width}, ${image.bitmap.height}`);
   })
 }
 
-function createIconData(image, dataHandler) {
-  jimp.read(image).then(function (image) {
-    console.log(`image read ${image.bitmap.width}, ${image.bitmap.height}`);
-    return `image read ${image.bitmap.width}, ${image.bitmap.height}`;
-    // do stuff with the image
-  }).catch(function (err) {
-    // handle an exception
-    throw err;
-  });
+function writeMaskFile(maskSource, maskTarget) {
+  jimp.read(maskSource, (err, image) => {
+    if (err) {
+      throw err;
+    }
+
+    const mask = image.clone();
+    mask.crop(43, 0, 43, 43);
+
+    mask.write(maskTarget, (err) => {
+      if (err) {
+        throw err;
+      }
+
+      console.log(`file created: ${maskTarget}`);
+    });
+  })
 }
 
 function writeFile(fileName, data) {

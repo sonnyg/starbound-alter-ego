@@ -5,8 +5,8 @@ const descriptorSets = [
   // { name: "Avian", pathExpression: "/humanoid/avian/hair"},
   // { name: "Floran", pathExpression: "/humanoid/floran/hair"},
   // { name: "Glitch", pathExpression: "/humanoid/glitch/hair"},
-  { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i},
-  { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i},
+  { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, bodyMask: "/humanoid/human/femalebody.png"},
+  { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, bodyMask: "/humanoid/human/malebody.png"},
   // { name: "Hylotl", pathExpression: "/humanoid/hylotl/hair"},
   // { name: "Novakid", pathExpression: "/humanoid/novakid/hair"}
 ];
@@ -29,6 +29,7 @@ descriptorSets.forEach((descriptorSet) => {
     if (file.match(descriptorSet.fileExpression)) {
       let wigDescriptor = createWigDescriptor(descriptorSet, file);
       wigDescriptor.iconSource = `${dir}/${file}`;
+      wigDescriptor.maskSource = `${asset_target}/${descriptorSet.bodyMask}`
 
       wigDescriptors.push(wigDescriptor);
     }
