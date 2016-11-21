@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
+const fs = require('fs-extra')
 const jimp = require('jimp')
 const dyeDescriptors = require('./dye-descriptors.js').dyeDescriptors
 const wigDescriptors = require('./wig-descriptors.js').wigDescriptors
 
 function clearBuild() {
-
+  fs.removeSync('./build');
 }
 
 function createMetadata() {
@@ -199,6 +199,8 @@ function writeFile(fileName, data) {
 
 const metadata = createMetadata();
 const modName = metadata.name;
+
+clearBuild();
 writeMetadataFile(modName, metadata);
 writeDyeFiles(modName, dyeDescriptors);
 writeWigFiles(modName, wigDescriptors);

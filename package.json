@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sonnyg/starbound-wig-out#readme",
   "dependencies": {
+    "fs-extra": "^1.0.0",
     "jimp": "^0.2.27"
   }
 }
