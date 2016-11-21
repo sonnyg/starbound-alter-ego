@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const descriptorSets = [
-  // { name: "Apex", pathExpression: "/humanoid/apex/hair"},
+  { name: "Apex Female", pathFragment: "/humanoid/apex/hairfemale", fileExpression: /(\d)+\.png/i, bodyMask: "/humanoid/human/femalebody.png"},
+  { name: "Apex male", pathFragment: "/humanoid/apex/hairmale", fileExpression: /(\d)+\.png/i, bodyMask: "/humanoid/human/malebody.png"},
   // { name: "Avian", pathExpression: "/humanoid/avian/hair"},
   // { name: "Floran", pathExpression: "/humanoid/floran/hair"},
   // { name: "Glitch", pathExpression: "/humanoid/glitch/hair"},
