@@ -7,7 +7,7 @@ const starbound_root = `${os.homedir()}/Library/Application Support/Steam/steama
 const asset_packer = `${starbound_root}/osx/asset_packer`;
 const mod_root = `${starbound_root}/mods`;
 
-const mod_name = 'wig-out';
+const mod_name = 'alter-ego';
 const pak_name = `${mod_name}.pak`;
 
 const pak_staging = 'build';
