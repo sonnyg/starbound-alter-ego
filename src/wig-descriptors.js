@@ -27,7 +27,10 @@ descriptorSets.forEach((descriptorSet) => {
   // console.log(`files: ${files}`);
   files.forEach((file) => {
     if (file.match(descriptorSet.fileExpression)) {
-      wigDescriptors.push(createWigDescriptor(descriptorSet, file));
+      let wigDescriptor = createWigDescriptor(descriptorSet, file);
+      wigDescriptor.iconSource = `${dir}/${file}`;
+
+      wigDescriptors.push(wigDescriptor);
     }
   })
 })
@@ -36,7 +39,8 @@ function createWigDescriptor(descriptorSet, file) {
   return {
     name: `${descriptorSet.name} ${file.replace(/\D/g, '')} Wig`,
     description: "An understated wig that's perfect for casual occasions.",
-    image: `${descriptorSet.pathFragment}/${file}`
+    image: `${descriptorSet.pathFragment}/${file}`,
+    iconSource: ""
   }
 }
 

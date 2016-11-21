@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const jimp = require('jimp')
 const dyeDescriptors = require('./dye-descriptors.js').dyeDescriptors
 const wigDescriptors = require('./wig-descriptors.js').wigDescriptors
 
@@ -54,7 +55,7 @@ function createWig(modName, wigDescriptor) {
   return {
     itemName: `${modName}${wigDescriptor.name.toLowerCase().replace(/ /g, '')}`,
     price: 5000,
-    inventoryIcon: "icons.png:head",
+    inventoryIcon: "icon.png:head",
     maxStack: 1,
     rarity: "Legendary",
     category: "headwear",
@@ -136,13 +137,41 @@ function createWig(modName, wigDescriptor) {
 }
 
 function writeWigFiles(modName, wigDescriptors) {
-  // const offset = 12;  // these are the preexisting colors
   wigDescriptors.forEach((wigDescriptor, index) => {
     const wig = createWig(modName, wigDescriptor);
-    const fileName = `./build/${modName}/items/armors/decorative/hats/${modName}/${wig.itemName}/${wig.itemName}.head`;
+    const dir = `./build/${modName}/items/armors/decorative/hats/${modName}/${wig.itemName}`;
+    const fileName = `${dir}/${wig.itemName}.head`;
 
     writeFile(fileName, wig);
+    writeIconFile(wigDescriptor.iconSource, `${dir}/icon.png`);
   })
+}
+
+function writeIconFile(imageSource, iconTarget) {
+  jimp.read(imageSource, (err, image) => {
+    if (err) {
+      throw err;
+    }
+
+    const icon = image.clone();
+    icon.crop(55, 9, 16, 16);
+
+    icon.write(iconTarget, (err) => {
+      console.log(`file created: ${iconTarget}`);
+    });
+    // console.log(`image read ${image.bitmap.width}, ${image.bitmap.height}`);
+  })
+}
+
+function createIconData(image, dataHandler) {
+  jimp.read(image).then(function (image) {
+    console.log(`image read ${image.bitmap.width}, ${image.bitmap.height}`);
+    return `image read ${image.bitmap.width}, ${image.bitmap.height}`;
+    // do stuff with the image
+  }).catch(function (err) {
+    // handle an exception
+    throw err;
+  });
 }
 
 function writeFile(fileName, data) {
