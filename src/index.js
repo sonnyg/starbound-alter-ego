@@ -55,7 +55,7 @@ function createWig(modName, wigDescriptor) {
   return {
     itemName: `${modName}${wigDescriptor.name.toLowerCase().replace(/ /g, '')}`,
     price: 5000,
-    inventoryIcon: "icon.png:head",
+    inventoryIcon: "icons.png:head",
     maxStack: 1,
     rarity: "Legendary",
     category: "headwear",
@@ -143,7 +143,7 @@ function writeWigFiles(modName, wigDescriptors) {
     const fileName = `${dir}/${wig.itemName}.head`;
 
     writeFile(fileName, wig);
-    writeIconFile(wigDescriptor.iconSource, `${dir}/icon.png`);
+    writeIconFile(wigDescriptor.iconSource, `${dir}/icons.png`);
   })
 }
 
