@@ -3,7 +3,7 @@
 const descriptorSets = [
   { name: "Apex Female", pathFragment: "/humanoid/apex/hairfemale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Apex male", pathFragment: "/humanoid/apex/hairmale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/malebody.png"},
-  // { name: "Avian", pathExpression: "/humanoid/avian/hair"},
+  { name: "Avian", pathFragment: "/humanoid/avian/hair", fileExpression: /(\d)+\.png/i, hairShades: ["ffca8a", "e0975c", "a85636"]},
   // { name: "Floran", pathExpression: "/humanoid/floran/hair"},
   // { name: "Glitch", pathExpression: "/humanoid/glitch/hair"},
   { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/femalebody.png"},
