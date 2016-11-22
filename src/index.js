@@ -72,7 +72,7 @@ function createWig(modName, wigDescriptor) {
 
 function createColorOptions(wigDescriptor) {
   const colorOptions = [];
-  
+
   dyeDescriptors.forEach((dyeDescriptor, index) => {
     if (index > 0) {
       colorOptions.push(createColorOption(wigDescriptor.shades, dyeDescriptor.shades));
@@ -87,9 +87,8 @@ function createColorOptions(wigDescriptor) {
 
 function createColorOption(sourceColors, targetColors) {
   const colorOption = {};
-
-  // definitely expecting three colors here...
-  for (let c = 0; c < 3; c++) {
+  
+  for (let c = 0; c < sourceColors.length; c++) {
     colorOption[sourceColors[c]] = targetColors[c];
   }
 
