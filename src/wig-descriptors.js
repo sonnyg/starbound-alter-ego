@@ -4,7 +4,10 @@ const descriptorSets = [
   { name: "Apex Female", pathFragment: "/humanoid/apex/hairfemale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Apex male", pathFragment: "/humanoid/apex/hairmale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/malebody.png"},
   { name: "Avian", pathFragment: "/humanoid/avian/hair", fileExpression: /(\d)+\.png/i, hairShades: ["ffca8a", "e0975c", "a85636"]},
-  // { name: "Floran", pathExpression: "/humanoid/floran/hair"},
+  { name: "Floran", pathFragment: "/humanoid/floran/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f32200", "dc1f00", "be1b00"]},
+  //LEAF COLOURS
+    //MUTED GREEN
+    // { "f7e7b2" : "c4d0a5", "d9c189" : "a3af83", "a38d59" : "6c7256", "735e3a" : "3b3d2d" },
   // { name: "Glitch", pathExpression: "/humanoid/glitch/hair"},
   { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/malebody.png"},
