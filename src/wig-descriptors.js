@@ -10,10 +10,11 @@ const descriptorSets = [
     //MUTED GREEN
     // { "f7e7b2" : "c4d0a5", "d9c189" : "a3af83", "a38d59" : "6c7256", "735e3a" : "3b3d2d" },
   { name: "Glitch", pathFragment: "/humanoid/glitch/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f7e7b2", "d9c189", "a38d59", "735e3a"]},
-  { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/femalebody.png"},
-  { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/malebody.png"},
+  { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"]},
+  { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"]},
   { name: "Hylotl", pathFragment: "/humanoid/hylotl/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f7e7b2", "d9c189", "a38d59", "735e3a"]},
-  // { name: "Novakid", pathExpression: "/humanoid/novakid/hair"}
+  { name: "Novakid Female", pathFragment: "/humanoid/novakid/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["fff8b5", "fde03f", "f6b919", "806319"]},
+  { name: "Novakid Male", pathFragment: "/humanoid/novakid/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["fff8b5", "fde03f", "f6b919", "806319"]}
 ];
 
 const wigDescriptors = [];
