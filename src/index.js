@@ -67,16 +67,12 @@ function createWig(modName, wigDescriptor) {
     mask: "mask.png",
 
     colorOptions: createColorOptions(wigDescriptor)
-    // colorOptions: [
-      // dye remover
-      // { "d9c189" : "d9c189", "a38d59" : "a38d59", "735e3a" : "735e3a" }
-    // ]
   }
 }
 
 function createColorOptions(wigDescriptor) {
   const colorOptions = [];
-
+  
   dyeDescriptors.forEach((dyeDescriptor, index) => {
     if (index > 0) {
       colorOptions.push(createColorOption(wigDescriptor.shades, dyeDescriptor.shades));
