@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// TODO - need to add 4 shades to dye colors, need to change index.js to use hairShades length, need two sets of replacement colors to deal with Floran and Hylotl color schemes.
 const descriptorSets = [
   { name: "Apex Female", pathFragment: "/humanoid/apex/hairfemale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Apex male", pathFragment: "/humanoid/apex/hairmale", fileExpression: /(\d)+\.png/i, hairShades: ["e0975c", "a85636", "6f2919"], bodyMask: "/humanoid/human/malebody.png"},
@@ -11,7 +12,7 @@ const descriptorSets = [
   { name: "Glitch", pathFragment: "/humanoid/glitch/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f7e7b2", "d9c189", "a38d59", "735e3a"]},
   { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/malebody.png"},
-  // { name: "Hylotl", pathExpression: "/humanoid/hylotl/hair"},
+  { name: "Hylotl", pathFragment: "/humanoid/hylotl/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f7e7b2", "d9c189", "a38d59", "735e3a"]},
   // { name: "Novakid", pathExpression: "/humanoid/novakid/hair"}
 ];
 
