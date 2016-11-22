@@ -8,7 +8,7 @@ const descriptorSets = [
   //LEAF COLOURS
     //MUTED GREEN
     // { "f7e7b2" : "c4d0a5", "d9c189" : "a3af83", "a38d59" : "6c7256", "735e3a" : "3b3d2d" },
-  // { name: "Glitch", pathExpression: "/humanoid/glitch/hair"},
+  { name: "Glitch", pathFragment: "/humanoid/glitch/hair", fileExpression: /(\d)+\.png/i, hairShades: ["f7e7b2", "d9c189", "a38d59", "735e3a"]},
   { name: "Human Female", pathFragment: "/humanoid/human/hair", fileExpression: /fem(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/femalebody.png"},
   { name: "Human Male", pathFragment: "/humanoid/human/hair", fileExpression: /male(\d)+\.png/i, hairShades: ["d9c189", "a38d59", "735e3a"], bodyMask: "/humanoid/human/malebody.png"},
   // { name: "Hylotl", pathExpression: "/humanoid/hylotl/hair"},
