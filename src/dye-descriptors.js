@@ -77,21 +77,20 @@ attempting to use assets with mulitple pallets, must utilize the current dye
 system.
 */
 
-// duplicate the list of dye descriptors (with unique names), excluding the dye
-// remover. since items are being added, I am using a bounded for loop instead
-// of a forEach.
-const originalLength = dyeDescriptors.length;
+// duplicate dyes to create "accessory" dyes, these correspond to a secondary
+// palette defined by some hair image assets.
 
-for (let i = 1; i < originalLength; i++) {
-  const dyeDescriptor = dyeDescriptors[i];
-  const accessoryDescriptor = {};
+dyeDescriptors.forEach((dyeDescriptor, dyeIndex) => {
+  if (dyeIndex > 0) {
+    const accessoryDescriptor = {};
 
-  accessoryDescriptor.color = `${dyeDescriptor.color} Accessory`;
-  accessoryDescriptor.paletteIndex = 1;
-  accessoryDescriptor.shades = dyeDescriptor.shades;
+    accessoryDescriptor.color = `${dyeDescriptor.color} Accessory`;
+    accessoryDescriptor.paletteIndex = dyeDescriptor.paletteIndex + 1;
+    accessoryDescriptor.shades = dyeDescriptor.shades;
 
-  dyeDescriptors.push(accessoryDescriptor);
-}
+    dyeDescriptors.push(accessoryDescriptor);
+  }
+});
 
 module.exports = {
   dyeDescriptors

@@ -73,12 +73,16 @@ function createWig(modName, wigDescriptor) {
 function createColorOptions(wigDescriptor) {
   const colorOptions = [];
 
-  dyeDescriptors.forEach((dyeDescriptor, index) => {
-    if (index > 0) {
-      colorOptions.push(createColorOption(wigDescriptor.shades, dyeDescriptor.shades));
+  dyeDescriptors.forEach((dyeDescriptor, dyeIndex) => {
+    if (dyeIndex > 0) {
+      // we will waste some cycles here if the wig doesn't have additional palettes defined
+      if (dyeDescriptor.paletteIndex < wigDescriptor.palettes.length) {
+        colorOptions.push(createColorOption(wigDescriptor.palettes[dyeDescriptor.paletteIndex], dyeDescriptor.shades));
+      }
     } else {
-      // 0 is dye remover, replace/restore with same colors
-      colorOptions.push(createColorOption(wigDescriptor.shades, wigDescriptor.shades));
+      // dye index 0 is always the dye remover - reset all palettes
+      const wigPalettes = [].concat(...(wigDescriptor.palettes));
+      colorOptions.push(createColorOption(wigPalettes, wigPalettes));
     }
   })
 
@@ -87,7 +91,7 @@ function createColorOptions(wigDescriptor) {
 
 function createColorOption(sourceColors, targetColors) {
   const colorOption = {};
-  
+
   for (let c = 0; c < sourceColors.length; c++) {
     colorOption[sourceColors[c]] = targetColors[c];
   }
@@ -103,7 +107,6 @@ function writeWigFiles(modName, wigDescriptors) {
 
     writeFile(fileName, wig);
     writeIconFile(wigDescriptor.iconSource, `${dir}/icons.png`);
-    // writeMaskFile(wigDescriptor.maskSource, `${dir}/mask.png`);
     writeMaskFile('./mask.png', `${dir}/mask.png`); // for now, just copy the empty mask file
   })
 }
