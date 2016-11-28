@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const os = require('os');
+const config = require('./config.js')
 
-const starbound_root = `${os.homedir()}/Library/Application Support/Steam/steamapps/common/Starbound`;
-const asset_unpacker = `${starbound_root}/osx/asset_unpacker`;
-const asset_root = `${starbound_root}/assets`;
+const asset_unpacker = `${config.starboundRoot}/osx/asset_unpacker`;
+const asset_source = `${config.assetRoot}/packed.pak`;
+const asset_target = `${config.assetRoot}/_unpacked`;
 
-const asset_source = `${asset_root}/packed.pak`;
-const asset_target = `${asset_root}/_unpacked`;
-
-console.log(`Unpacking Starbound assets: ${asset_root}`);
+console.log(`Using asset location: ${config.assetRoot}`);
+console.log(`Unpacking assets to: ${asset_target}`);
 
 const execFile = require('child_process').execFile;
 

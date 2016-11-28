@@ -17,11 +17,9 @@ const descriptorSets = [
 const wigDescriptors = [];
 
 const fs = require('fs')
-const os = require('os')
+const config = require('./config.js')
 
-const starbound_root = `${os.homedir()}/Library/Application Support/Steam/steamapps/common/Starbound`;
-const asset_root = `${starbound_root}/assets`;
-const asset_target = `${asset_root}/_unpacked`;
+const asset_target = `${config.assetRoot}/_unpacked`;
 
 descriptorSets.forEach((descriptorSet) => {
   const dir = `${asset_target}${descriptorSet.pathFragment}`;

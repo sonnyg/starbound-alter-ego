@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const os = require('os');
-
-const starbound_root = `${os.homedir()}/Library/Application Support/Steam/steamapps/common/Starbound`;
-const asset_packer = `${starbound_root}/osx/asset_packer`;
-const mod_root = `${starbound_root}/mods`;
+const config = require('./config.js')
 
 const mod_name = 'alter-ego';
 const pak_name = `${mod_name}.pak`;
@@ -14,9 +10,10 @@ const pak_staging = 'build';
 const pak_source = `${pak_staging}/${mod_name}`;
 const pak_target = `${pak_staging}/${pak_name}`;
 
-const mod_target = `${mod_root}/${pak_name}`;
+const mod_target = `${config.modRoot}/${pak_name}`;
+const asset_packer = `${config.starboundRoot}/osx/asset_packer`;
 
-console.log(`Packing Starbound mod: ${mod_name} => ${pak_name}`);
+console.log(`Packing mod: ${mod_name} => ${pak_name}`);
 
 const execFile = require('child_process').execFile;
 
