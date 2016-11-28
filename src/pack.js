@@ -19,7 +19,7 @@ const execFile = require('child_process').execFile;
 
 const child = execFile(asset_packer, [pak_source, pak_target], (error, stdout, stderr) => {
   if (error) {
-    // console.error(error);
+    console.error(error);
     throw error;
   }
 
