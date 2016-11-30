@@ -15,7 +15,7 @@ function getAssetToolsPath() {
 const assetUnpacker = path.resolve(starboundRoot, getAssetToolsPath(), 'asset_unpacker');
 const assetRoot = path.resolve(starboundRoot, 'assets');
 const assetSource = path.resolve(assetRoot, 'packed.pak');
-const assetTarget = path.resolve('.assets');
+const assetTarget = path.resolve('assets');
 
 module.exports = {
   starboundRoot,
