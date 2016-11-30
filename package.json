@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./src/index.js",
-    "postinstall": "./src/unpack.js"
+    "postinstall": "./src/unpack.js",
+    "poststart": "./src/pack.js"
   },
   "repository": {
     "type": "git",
