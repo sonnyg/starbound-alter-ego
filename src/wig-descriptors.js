@@ -19,7 +19,7 @@ const wigDescriptors = [];
 const fs = require('fs')
 const config = require('./config.js')
 
-const asset_target = `${config.assetRoot}/_unpacked`;
+const asset_target = `${config.assetTarget}`;
 
 descriptorSets.forEach((descriptorSet) => {
   const dir = `${asset_target}${descriptorSet.pathFragment}`;
