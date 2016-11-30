@@ -7,8 +7,9 @@ const assetUnpacker = `${config.assetUnpacker}`;
 const assetSource = `${config.assetSource}`;
 const assetTarget = `${config.assetTarget}`;
 
-console.log(`Asset source:  ${assetSource}`);
-console.log(`Assets target: ${assetTarget}`);
+console.log(`Asset unpacker: ${assetUnpacker}`);
+console.log(`Asset source: ${assetSource}`);
+console.log(`Asset target: ${assetTarget}`);
 
 const execFile = require('child_process').execFile;
 
