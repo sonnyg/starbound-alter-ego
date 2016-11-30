@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs-extra')
+const path = require('path')
 const jimp = require('jimp')
 const dyeDescriptors = require('./dye-descriptors.js').dyeDescriptors
 const wigDescriptors = require('./wig-descriptors.js').wigDescriptors
@@ -151,19 +152,19 @@ function writeMaskFile(maskSource, maskTarget) {
 
 function writeFile(fileName, data) {
   const dirs = fileName.split('/');
-  let path = "";
+  let filePath = "";
 
   dirs.forEach((dir, index) => {
-    path += dir;
+    filePath += dir;
 
     // skip last entry, assume it is the file name
     if (index < dirs.length-1) {
-      if (!fs.existsSync(path)) {
-        fs.mkdirSync(path);
+      if (!fs.existsSync(filePath)) {
+        fs.mkdirSync(filePath);
       }
     }
 
-    path += '/';
+    filePath += path.sep;
   })
 
   // 'pretty' print the json
