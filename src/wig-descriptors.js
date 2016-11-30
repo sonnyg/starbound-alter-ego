@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// TODO - need to add 4 shades to dye colors, need to change index.js to use hairShades length, need two sets of replacement colors to deal with Floran and Hylotl color schemes.
 const descriptorSets = [
   { name: "Apex Female", pathFragment: "/humanoid/apex/hairfemale", fileExpression: /(\d)+\.png/i, palettes: [["e0975c", "a85636", "6f2919"]] },
   { name: "Apex male", pathFragment: "/humanoid/apex/hairmale", fileExpression: /(\d)+\.png/i, palettes: [["e0975c", "a85636", "6f2919"]] },
@@ -17,18 +16,17 @@ const descriptorSets = [
 const wigDescriptors = [];
 
 const fs = require('fs')
+const path = require('path')
 const config = require('./config.js')
 
-const asset_target = `${config.assetTarget}`;
-
 descriptorSets.forEach((descriptorSet) => {
-  const dir = `${asset_target}${descriptorSet.pathFragment}`;
+  const dir = path.resolve(config.assetTarget, ...(descriptorSet.pathFragment.split('/')));
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {
     if (file.match(descriptorSet.fileExpression)) {
       let wigDescriptor = createWigDescriptor(descriptorSet, file);
-      wigDescriptor.iconSource = `${dir}/${file}`;
+      wigDescriptor.iconSource = path.resolve(dir, file);
 
       wigDescriptors.push(wigDescriptor);
     }
