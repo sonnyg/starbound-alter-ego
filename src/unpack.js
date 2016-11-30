@@ -3,17 +3,18 @@
 const fs = require('fs');
 const config = require('./config.js');
 
-const asset_unpacker = `${config.starboundRoot}/osx/asset_unpacker`;
-const asset_source = `${config.assetRoot}/packed.pak`;
-const asset_target = `${config.assetRoot}/_unpacked`;
+const assetUnpacker = `${config.assetUnpacker}`;
+const assetSource = `${config.assetSource}`;
+const assetTarget = `${config.assetTarget}`;
 
-console.log(`Using asset location: ${config.assetRoot}`);
-console.log(`Unpacking assets to: ${asset_target}`);
+console.log(`Asset source:  ${assetSource}`);
+console.log(`Assets target: ${assetTarget}`);
 
 const execFile = require('child_process').execFile;
 
-const child = execFile(asset_unpacker, [asset_source, asset_target], (error, stdout, stderr) => {
+const child = execFile(assetUnpacker, [assetSource, assetTarget], (error, stdout, stderr) => {
   if (error) {
+    console.error(stderr);
     console.error(error);
     throw error;
   }
